@@ -2,6 +2,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.math.BigInteger;
+import java.nio.file.Files;
 
 class Primecal {
     public boolean isPrime(BigInteger input) {
@@ -24,7 +25,7 @@ public class Main {
 
         Primecal primecal = new Primecal();
 
-        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename))) {
+        try (BufferedWriter writer = Files.newBufferedWriter(filename.toPath())) {
             for (long i = 2; i < n; i++) {
                 if (primecal.isPrime(BigInteger.valueOf(i))) {
                     System.out.println(i);
